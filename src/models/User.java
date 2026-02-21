@@ -1,5 +1,6 @@
 package models;
 
+import java.util.Objects;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class User {
@@ -19,11 +20,8 @@ public class User {
     }
 
     public String getName() { return name; }
-    
     public String getEmail() { return email; }
-
     public int getAge() { return age; }
-    
     public int getId() { return id; }
 
     public void setName(String name) {
@@ -53,5 +51,18 @@ public class User {
     @Override
     public String toString() {
         return String.format("\nID: %d\nName: %s\nAge: %d\nEmail: %s\n", id, name, age, email);
+    }
+    
+    @Override
+    public boolean equals(Object o){
+        if (this == o) return true;
+        if (!(o instanceof User user)) return false;
+        return id == user.id;
+    }
+
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }
