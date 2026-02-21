@@ -15,15 +15,13 @@ public class UserService {
     public void addUser(User user)
     {
         if (user == null) {
-            throw new IllegalArgumentException("User canot be a null");
+            throw new IllegalArgumentException("User cannot be a null");
         }
         users.add(user);
-        System.out.println("User added");
     }
 
     public void showAllUsers(){
         if (users.isEmpty()) {
-            System.out.println("No users");
             return;
         }
         for (User user : users){
@@ -46,7 +44,6 @@ public class UserService {
             return false;
         }
         users.remove(delUser);
-        System.out.println("User: " + delUser.getName() + " deleted");
         return true;
     }
 }
