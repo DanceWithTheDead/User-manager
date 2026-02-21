@@ -83,7 +83,7 @@ public class App {
                     break;
 
                 case 5:
-                    System.out.println("Bye");
+                    System.out.println("Bye!");
                     input.close();
                     return;    
 
