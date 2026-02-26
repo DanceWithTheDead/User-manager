@@ -22,6 +22,7 @@ public class UserService {
 
     public void showAllUsers(){
         if (users.isEmpty()) {
+            System.out.println("No users");
             return;
         }
         for (User user : users){
@@ -44,6 +45,17 @@ public class UserService {
             return false;
         }
         users.remove(delUser);
+        return true;
+    }
+
+    public boolean updateUser(int id, String name, int age, String email){
+        User user = findById(id);
+        if (user == null) {
+            return false;
+        }
+        user.setName(name);
+        user.setAge(age);
+        user.setEmail(email);
         return true;
     }
 }

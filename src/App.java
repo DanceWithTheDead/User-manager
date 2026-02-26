@@ -15,7 +15,8 @@ public class App {
             System.out.println("2: Show All Users");
             System.out.println("3: Find User");
             System.out.println("4: Delete User");
-            System.out.println("5: Exit");
+            System.out.println("5: Update user");
+            System.out.println("6: Exit");
             System.out.println("-----------------");
             System.out.print("Choose options: ");
 
@@ -83,6 +84,34 @@ public class App {
                     break;
 
                 case 5:
+                    System.out.print("Enter user id: ");
+                    int updateId = input.nextInt();
+                    input.nextLine();
+                    try{
+                        System.out.print("Enter name: ");
+                        String name = input.nextLine();
+
+                        System.out.print("Enter age: ");
+                        int age = input.nextInt();
+                        input.nextLine();
+
+                        System.out.print("Enter email: ");
+                        String email = input.nextLine();
+
+                        boolean update = userService.updateUser(updateId, name, age, email); 
+                        if (update) {
+                            System.out.println("User update successfully");
+                        } else {
+                            System.out.println("User not found");
+                        }
+
+                    } catch (Exception e){
+                        System.out.println("Error: " + e.getMessage());
+                        input.nextLine();
+                    }
+                    break;   
+                    
+                case 6:
                     System.out.println("Bye!");
                     input.close();
                     return;    
