@@ -33,16 +33,16 @@ public class User {
 
     public void setAge(int age) {
         if (age <= 0 || age >= 100) {
-            throw new IllegalArgumentException("Age must be beetwen 1 and 99");
+            throw new IllegalArgumentException("Age must be between 1 and 99");
         }
         this.age = age;
     }
 
     public void setEmail(String email) {
         if (email == null || email.isBlank()) {
-            throw new IllegalArgumentException("Email canot be a empty");
+            throw new IllegalArgumentException("Email cannot be a empty");
         }
-        if (!email.contains("@")) {
+        if (!email.contains("@") || !email.contains(".")) {
             throw new IllegalArgumentException("Invalid email format");
         }
         this.email = email;
